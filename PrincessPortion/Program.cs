@@ -5,7 +5,7 @@ namespace PrincessPortion
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //These strings represent the task itself and the sayings on each chest
             string goldenChest = "The portrait is not in this chest. The portrait is in the silver chest.";
@@ -87,12 +87,14 @@ namespace PrincessPortion
                         silverChestText1, silverChestText2,
                         ironChestText1, ironChestText2,
                         input);
+                    //This break command makes so once the correct answer is given, the program stops!
+                    //This way if the answer is not correct the user can continue to try and find the answer!
                     break;
                 }
-                //This else is mainly if the user inputs something different
+                //This else statement is mainly if the user gives something different for an answer.
                 else
                 {
-                    Console.WriteLine("error");
+                    Console.WriteLine("This is not a valid chest!");
                 }
                 input = Console.ReadLine();
             }
@@ -107,6 +109,7 @@ namespace PrincessPortion
             bool iron1, bool iron2, 
             string chest)
         {
+            //This if statement contains the correct answer of the program
             if (gold1 == true && gold2 == false && 
                 silver1 == true && silver2 == true && 
                 iron1 == false && iron2 == false)
