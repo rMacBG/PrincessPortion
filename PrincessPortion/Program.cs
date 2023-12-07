@@ -16,18 +16,21 @@ namespace PrincessPortion
                 "The princess also added on  one chest one text says the truth and one says a lie, one chest both\n" +
                 "lines are lies and one chest with both saying the truth.\n" +
                 "This is what's written on each chest: \n";
-            // calling every string so the code doesn't look that crowded!
+            // calling every string so the code doesn't look that crowded.
             Console.WriteLine(task);
             Console.WriteLine(goldenChest + "\n");
             Console.WriteLine(silverChest + "\n");
             Console.WriteLine(ironChest + "\n");
+
             //This line requires console input from the user and depending
             //on what the user inputs, an answer will pop up on the console!
             Console.Write("Enter what chest you think the portrait is in: ");
-            //This is where the input is acquired!
-            string input = Console.ReadLine().ToLower();
-            //a bool variable set for every statement on each chest!
 
+            //This is where the input is acquired!(The ToLower() command makes every input the user gives to be
+            //lowercase so it's easier to check.)
+            string input = Console.ReadLine().ToLower();
+            
+            //a bool variable set for every statement on each chest!
             bool goldChestText1 = false;
             bool goldChestText2 = false;
             bool silverChestText1 = false;
@@ -40,7 +43,7 @@ namespace PrincessPortion
             //accordingly so the answer is built upon these booleans
             while (true)
             {
-                if (input == "gold")
+                if (input == "gold" || input == "golden")
                 {
                     goldChestText1 = false;
                     goldChestText2 = false;
@@ -48,7 +51,10 @@ namespace PrincessPortion
                     silverChestText2 = false;
                     ironChestText1 = true;
                     ironChestText2 = true;
-
+                    //Here the method gets every boolean value,
+                    //checks it to the predefined answer and then
+                    //returns either a correct answer or a wrong answer.
+                    //This is done in every if statement!
                     RightAnswerChecker(goldChestText1, goldChestText2,
                         silverChestText1, silverChestText2,
                         ironChestText1, ironChestText2,
