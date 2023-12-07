@@ -22,15 +22,13 @@ namespace PrincessPortion
             Console.WriteLine(silverChest + "\n");
             Console.WriteLine(ironChest + "\n");
 
-            //This line requires console input from the user and depending
-            //on what the user inputs, an answer will pop up on the console!
-            Console.Write("Enter what chest you think the portrait is in: ");
+            //This line requires console input from the player and depending
+            //on what the player inputs, an answer will pop up on the console!
+            Console.WriteLine("In which chest do you think the portrait is in?\n");
+            Console.Write("Give an answer: ");
+            string answer = Console.ReadLine().ToLower(); //This is where the input is acquired!
 
-            //This is where the input is acquired!(The ToLower() command makes every input the user gives to be
-            //lowercase so it's easier to check.)
-            string input = Console.ReadLine().ToLower();
-            
-            //a bool variable set for every statement on each chest!
+            //A bool variable set for every statement on each chest!
             bool goldChestText1 = false;
             bool goldChestText2 = false;
             bool silverChestText1 = false;
@@ -39,12 +37,18 @@ namespace PrincessPortion
             bool ironChestText2 = false;
 
 
-            //The if statements check what the user answer is and depending on that it will change every boolean
-            //accordingly so the answer is built upon these booleans
+            //The IF statements check what the user answer is and depending on that it will change every boolean
+            //accordingly so the answer is built upon these booleans and everything is looped in a while loop so
+            //the player can try multiple times until the correct answer is given!
             while (true)
-            {
-                if (input == "gold" || input == "golden")
+            {          
+                if (answer == "gold" || answer == "golden")
                 {
+                    //If the answer is gold OR golden, the answer is wrong
+                    //because the statements on the GOLDEN chest are both wrong,
+                    //the statements on the SILVER chest are also both wrong and
+                    //the statements on the IRON chest are borh right!
+
                     goldChestText1 = false;
                     goldChestText2 = false;
                     silverChestText1 = false;
@@ -58,10 +62,14 @@ namespace PrincessPortion
                     RightAnswerChecker(goldChestText1, goldChestText2,
                         silverChestText1, silverChestText2,
                         ironChestText1, ironChestText2,
-                        input);
+                        answer);
                 }
-                else if (input == "silver")
+                else if (answer == "silver")
                 {
+                    //If the answer is SILVER, this is a wrong answer because
+                    //In this case both statements on the GOLDEN chest are true
+                    //the SILVER chest has one right and one wrong statement and
+                    //the IRON chest also has one right and one wrong statement.
                     goldChestText1 = true;
                     goldChestText2 = true;
                     silverChestText1 = true;
@@ -72,10 +80,14 @@ namespace PrincessPortion
                     RightAnswerChecker(goldChestText1, goldChestText2,
                         silverChestText1, silverChestText2,
                         ironChestText1, ironChestText2,
-                        input);
+                        answer);
                 }
-                else if (input == "iron")
+                else if (answer == "iron")
                 {
+                    //If the answer is IRON, this is the correct answer.
+                    //Why, well because in this case we have the GOLDEN chest with
+                    //ONE TRUE and ONE FALSE statement, the SILVER one with both CORRECT
+                    //statements and the IRON chest with two INCORRECT statements.
                     goldChestText1 = true;
                     goldChestText2 = false;
                     silverChestText1 = true;
@@ -86,30 +98,28 @@ namespace PrincessPortion
                     RightAnswerChecker(goldChestText1, goldChestText2,
                         silverChestText1, silverChestText2,
                         ironChestText1, ironChestText2,
-                        input);
-                    //This break command makes so once the correct answer is given, the program stops!
-                    //This way if the answer is not correct the user can continue to try and find the answer!
+                        answer);
+                    //This break command stops the while loop once the player has given the correct answer!
                     break;
                 }
-                //This else statement is mainly if the user gives something different for an answer.
+                //This else statement is mainly if the player gives something different for an answer.
                 else
                 {
                     Console.WriteLine("This is not a valid chest!");
                 }
-                input = Console.ReadLine();
+                answer = Console.ReadLine();
             }
         }
 
-        //This method is called every time the user gives an answer to check if the given chest is the right one!
-        //If the chest is right the program will stop saying that the answer is correct, if not the program will
-        //exit and say that the answer is wrong.
-        //The idea is less repeating code!  
+        //This method is called every time the player gives an answer to check if the given chest is the right one!
+        //If the chest is right, the program will stop, saying that the answer is correct, if not the program will
+        //continue and say that the answer is wrong. 
         public static void RightAnswerChecker(bool gold1,
             bool gold2, bool silver1, bool silver2,
             bool iron1, bool iron2, 
             string chest)
         {
-            //This if statement contains the correct answer of the program
+            //This IF statement contains the correct answer of the program
             if (gold1 == true && gold2 == false && 
                 silver1 == true && silver2 == true && 
                 iron1 == false && iron2 == false)
