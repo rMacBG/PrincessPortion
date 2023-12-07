@@ -53,8 +53,6 @@ namespace PrincessPortion
                         silverChestText1, silverChestText2,
                         ironChestText1, ironChestText2,
                         input);
-
-
                 }
                 else if (input == "silver")
                 {
@@ -92,8 +90,6 @@ namespace PrincessPortion
                 }
                 input = Console.ReadLine();
             }
-            
-
         }
 
         //This method is called every time the user gives an answer to check if the given chest is the right one!
@@ -105,7 +101,6 @@ namespace PrincessPortion
             bool iron1, bool iron2, 
             string chest)
         {
-
             if (gold1 == true && gold2 == false && 
                 silver1 == true && silver2 == true && 
                 iron1 == false && iron2 == false)
@@ -117,9 +112,6 @@ namespace PrincessPortion
                 Console.WriteLine($"Wrong answer! The portrait is not in the {chest} chest");
                 Console.Write($"Enter another answer: ");
             }
-
-
         }
-
     }
 }
